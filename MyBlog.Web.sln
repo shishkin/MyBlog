@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlog.Web", "MyBlog.Web.csproj", "{B4133AC8-1DDF-4D8A-91CF-75DC31AEA2F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlog.Web", "MyBlog.Web\MyBlog.Web.csproj", "{B4133AC8-1DDF-4D8A-91CF-75DC31AEA2F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlog.Web.Tests", "..\MyBlog.Web.Tests\MyBlog.Web.Tests.csproj", "{32130E4E-FC4F-47D4-B3F6-EC78F45A8B84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlog.Web.Tests", "MyBlog.Web.Tests\MyBlog.Web.Tests.csproj", "{32130E4E-FC4F-47D4-B3F6-EC78F45A8B84}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1513C2B-C9F5-4C26-89F8-1F9E5FD00908}"
 	ProjectSection(SolutionItems) = preProject
-		..\LICENSE = ..\LICENSE
-		..\README = ..\README
+		LICENSE = LICENSE
+		README = README
 	EndProjectSection
 EndProject
 Global
