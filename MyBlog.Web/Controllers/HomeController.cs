@@ -11,13 +11,6 @@ namespace MyBlog.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "Welcome to ASP.NET MVC!";
-
-            return View();
-        }
-
-        public ActionResult About()
-        {
             return View();
         }
     }

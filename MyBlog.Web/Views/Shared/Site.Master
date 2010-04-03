@@ -3,33 +3,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <title>Sergey Shishkin</title>
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
-    <div class="page">
-
+    <div id="page">
         <div id="header">
-            <div id="title">
-                <h1>My MVC Application</h1>
-            </div>
-                          
-            <div id="menucontainer">
-            
-                <ul id="menu">              
-                    <li><%= Html.ActionLink("Home", "Index", "Home")%></li>
-                    <li><%= Html.ActionLink("About", "About", "Home")%></li>
-                </ul>
-            
-            </div>
+            <h1 id="title">Sergey Shishkin</h1>
+            <h2 id="subtitle">
+                on agile software development</h2>
         </div>
-
-        <div id="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-
-            <div id="footer">
-            </div>
+        <div id="about">
+            <p>
+                <img id="photo" src="../../Content/photo.jpg" width="140px" height="185px" alt="Sergey Shishkin" />
+                <br />
+                My name is Sergey&nbsp;Shishkin. I&nbsp;professionally develop software for more
+                than 8&nbsp;years, mostly on .NET platform. Through my career I&nbsp;have come to
+                value simplicity, attention to details, <a href="http://en.wikipedia.org/wiki/Kaizen">
+                    continuous improvement</a>, principles behind the <a href="http://agilemanifesto.org/">
+                        Agile Manifesto</a>, and <a href="http://clean-code-developer.de/">Clean Code</a>.
+            </p>
+        </div>
+        <div id="content">
+            <asp:ContentPlaceHolder ID="Content" runat="server" />
+        </div>
+        <div id="footer">
+            2006&#150;<%= DateTime.Today.Year %>&nbsp;Sergey&nbsp;Shishkin. This work is licensed
+            under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative
+                Commons Attribution 3.0 Unported License</a>.
         </div>
     </div>
 </body>
