@@ -1,4 +1,15 @@
-﻿/*
+﻿@page-width: 974px;
+@about-width: 200px;
+
+@font-normal: Calibri, Trebuchet MS, Sans-Serif;
+@font-header: Cambria, Georgia, Serif;
+
+@color-background: #fff;
+@color-text: #000;
+@color-accent: #777;
+@color-light: #999;
+
+/*
     Main layout
 */
 
@@ -10,7 +21,7 @@ body, div
 
 #page
 {
-    width: 974px;
+    width: @page-width;
     margin: 0 auto;
 }
 
@@ -22,12 +33,12 @@ body, div
 #about
 {
     float: right;
-    width: 200px;
+    width: @about-width;
 }
 
 #content
 {
-    margin-right: 200px;
+    margin-right: @about-width;
     padding-right: 60px;
 }
 
@@ -43,12 +54,13 @@ body, div
 
 body
 {
-    font-family: Calibri, Trebuchet MS, Sans-Serif
+    font-family: @font-normal;
+    background-color: @color-background;
 }
 
 h1, h2, h3
 {
-    font-family: Cambria, Georgia, Serif
+    font-family: @font-header;
 }
 
 #title
@@ -63,18 +75,18 @@ h1, h2, h3
     font-size: 1.5em;
     margin: 0;
     padding: 0;
-    color: #777;
+    color: @color-accent;
 }
 
 #footer
 {
-    color: #999;
+    color: @color-light;
     font-size: smaller;
 }
 
 #footer a
 {
-    color: #999;
+    color: @color-light;
 }
 
 #photo
