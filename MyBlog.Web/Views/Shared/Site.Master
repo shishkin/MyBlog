@@ -14,6 +14,8 @@
                 on agile software development</h2>
         </div>
         <div id="about">
+            <h2>
+                About me</h2>
             <p>
                 <img id="photo" src="../../Content/photo.jpg" width="140px" height="185px" alt="Sergey Shishkin" />
                 <br />
@@ -23,6 +25,30 @@
                     continuous improvement</a>, principles behind the <a href="http://agilemanifesto.org/">
                         Agile Manifesto</a>, and <a href="http://clean-code-developer.de/">Clean Code</a>.
             </p>
+            <h2>
+                Find me on</h2>
+            <ul class="badges">
+                <li class="badge"><a href="http://feeds.feedburner.com/SergeyShishkin">
+                    <img src="../../Content/blog_32_0.png" alt="Syndication feed" title="Syndication feed" /></a></li>
+                <li class="badge"><a href="mailto:sergei.shishkin@gmail.com">
+                    <img src="../../Content/email_32_0.png" alt="Email" title="Email" /></a></li>
+                <li class="badge"><a href="http://twitter.com/sshishkin">
+                    <img src="../../Content/twitter_32_0.png" alt="Twitter" title="Twitter" /></a></li>
+                <li class="badge"><a href="http://sergeyshishkin.spaces.live.com/">
+                    <img src="../../Content/windows_32_0.png" alt="Windows Live" title="Windows Live" /></a></li>
+                <li class="badge"><a href="skype:serega.shishkin">
+                    <img src="../../Content/skype_32_0.png" alt="Skype" title="Skype" /></a></li>
+                <li class="badge"><a href="http://de.linkedin.com/in/serega">
+                    <img src="../../Content/linkedin_32_0.png" alt="LinkedIn" title="LinkedIn" /></a></li>
+                <li class="badge"><a href="http://www.xing.com/profile/Sergey_Shishkin2">
+                    <img src="../../Content/xing_32_0.png" alt="Xing" title="Xing" /></a></li>
+                <li class="badge"><a href="http://stackoverflow.com/users/43547/serega">
+                    <img src="../../Content/stackoverflow_32_0.png" alt="Stackoverflow" title="Stackoverflow" /></a></li>
+                <li class="badge"><a href="http://github.com/shishkin">
+                    <img src="../../Content/github_32_0.png" alt="GitHub" title="GitHub" /></a></li>
+                <li class="badge"><a href="http://www.last.fm/user/shishkin">
+                    <img src="../../Content/lastfm_32_0.png" alt="Last.fm" title="Last.fm" /></a></li>
+            </ul>
         </div>
         <div id="content">
             <asp:ContentPlaceHolder ID="Content" runat="server" />
@@ -30,7 +56,9 @@
         <div id="footer">
             2006&#150;<%= DateTime.Today.Year %>&nbsp;Sergey&nbsp;Shishkin. This work is licensed
             under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative
-                Commons Attribution 3.0 Unported License</a>.
+                Commons Attribution 3.0 Unported License</a>. The <a href="http://jeremy.am/downloads/social-media-icon-pack/">
+                    Find Me On Social Media Icon Pack</a> by <a href="http://jeremyanticouni.com/">Jeremy
+                        Anticouni</a>.
         </div>
     </div>
 </body>

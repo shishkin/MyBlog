@@ -79,7 +79,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\blog_32_0.png" />
+    <Content Include="Content\email_32_0.png" />
+    <Content Include="Content\github_32_0.png" />
+    <Content Include="Content\lastfm_32_0.png" />
+    <Content Include="Content\linkedin_32_0.png" />
     <Content Include="Content\photo.jpg" />
+    <Content Include="Content\skype_32_0.png" />
+    <Content Include="Content\stackoverflow_32_0.png" />
+    <Content Include="Content\twitter_32_0.png" />
+    <Content Include="Content\windows_32_0.png" />
+    <Content Include="Content\xing_32_0.png" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

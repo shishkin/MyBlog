@@ -59,10 +59,27 @@ body
     background-color: @color-background;
 }
 
-h1, h2, h3
+.header
 {
     font-family: @font-header;
     color: @color-accent-dark;
+    text-decoration: none;
+}
+
+h1, h2, h3
+{
+    .header;
+}
+
+.underline-header
+{
+    width: 100%;
+    border-bottom: 1px solid;
+}
+        
+img
+{
+    border-width: 0px;
 }
 
 #title
@@ -96,12 +113,13 @@ h1, h2, h3
     margin-bottom: 10px;
 }
 
-.article h1, .article h1 a
+.article h1
 {
-    color: @color-accent-dark;
-    text-decoration: none;
-    width: 100%;
-    border-bottom: 1px solid;
+    .underline-header;
+    a
+    {
+        .header;
+    }
 }
 
 .article .timestamp
@@ -109,4 +127,23 @@ h1, h2, h3
     margin-top: -1.8em;
     color: @color-accent;
     font-size: 0.8em;
+}
+
+#about h2
+{
+    .underline-header;
+}
+
+ul.badges
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    li.badge
+    {
+        margin: 0.3em;
+        padding: 0;
+        float: left;
+    }
 }
