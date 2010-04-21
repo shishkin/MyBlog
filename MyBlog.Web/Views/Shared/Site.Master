@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Sergey Shishkin</title>
-    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" runat="server" />
 </head>
 <body>
     <div id="page">
@@ -17,7 +17,7 @@
             <h2>
                 About me</h2>
             <p>
-                <img id="photo" src="../../Content/photo.jpg" width="140px" height="185px" alt="Sergey Shishkin" />
+                <img id="photo" src="~/Content/photo.jpg" width="140" height="185" alt="Sergey Shishkin" runat="server" />
                 <br />
                 My name is Sergey&nbsp;Shishkin. I&nbsp;professionally develop software for more
                 than 8&nbsp;years, mostly on .NET platform. Through my career I&nbsp;have come to
@@ -28,26 +28,28 @@
             <h2>
                 Find me on</h2>
             <ul class="badges">
-                <li class="badge"><a href="http://feeds.feedburner.com/SergeyShishkin">
-                    <img src="../../Content/blog_32_0.png" alt="Syndication feed" title="Syndication feed" /></a></li>
-                <li class="badge"><a href="mailto:sergei.shishkin@gmail.com">
-                    <img src="../../Content/email_32_0.png" alt="Email" title="Email" /></a></li>
-                <li class="badge"><a href="http://twitter.com/sshishkin">
-                    <img src="../../Content/twitter_32_0.png" alt="Twitter" title="Twitter" /></a></li>
-                <li class="badge"><a href="http://sergeyshishkin.spaces.live.com/">
-                    <img src="../../Content/windows_32_0.png" alt="Windows Live" title="Windows Live" /></a></li>
-                <li class="badge"><a href="skype:serega.shishkin">
-                    <img src="../../Content/skype_32_0.png" alt="Skype" title="Skype" /></a></li>
-                <li class="badge"><a href="http://de.linkedin.com/in/serega">
-                    <img src="../../Content/linkedin_32_0.png" alt="LinkedIn" title="LinkedIn" /></a></li>
-                <li class="badge"><a href="http://www.xing.com/profile/Sergey_Shishkin2">
-                    <img src="../../Content/xing_32_0.png" alt="Xing" title="Xing" /></a></li>
-                <li class="badge"><a href="http://stackoverflow.com/users/43547/serega">
-                    <img src="../../Content/stackoverflow_32_0.png" alt="Stackoverflow" title="Stackoverflow" /></a></li>
-                <li class="badge"><a href="http://github.com/shishkin">
-                    <img src="../../Content/github_32_0.png" alt="GitHub" title="GitHub" /></a></li>
-                <li class="badge"><a href="http://www.last.fm/user/shishkin">
-                    <img src="../../Content/lastfm_32_0.png" alt="Last.fm" title="Last.fm" /></a></li>
+            <%
+                var badges = new[]
+                {
+                    new{Name = "Syndication feed", Url = "http://feeds.feedburner.com/SergeyShishkin", Img = "blog_32_0.png"},
+                    new{Name = "Email", Url = "mailto:sergei.shishkin@gmail.com", Img = "email_32_0.png"},
+                    new{Name = "Twitter", Url = "http://twitter.com/sshishkin", Img = "twitter_32_0.png"},
+                    new{Name = "Windows Live", Url = "http://sergeyshishkin.spaces.live.com/", Img = "windows_32_0.png"},
+                    new{Name = "Skype", Url = "skype:serega.shishkin", Img = "skype_32_0.png"},
+                    new{Name = "LinkedIn", Url = "http://de.linkedin.com/in/serega", Img = "linkedin_32_0.png"},
+                    new{Name = "Xing", Url = "http://www.xing.com/profile/Sergey_Shishkin2", Img = "xing_32_0.png"},
+                    new{Name = "Stack Overflow", Url = "http://stackoverflow.com/users/43547/serega", Img = "stackoverflow_32_0.png"},
+                    new{Name = "GitHub", Url = "http://github.com/shishkin", Img = "github_32_0.png"},
+                    new{Name = "Last.fm", Url = "http://www.last.fm/user/shishkin", Img = "lastfm_32_0.png"}
+                };
+
+                Func<string, string> imgUrl = x => Url.Content(string.Format("~/Content/{0}", x));
+                
+                foreach (var badge in badges)
+                {
+  %><li class="badge"><a href="<%= badge.Url %>"><img src="<%= imgUrl(badge.Img) %>" alt="<%= badge.Name %>" title="<%= badge.Name %>" /></a></li><%
+                }
+            %>
             </ul>
         </div>
         <div id="content">
