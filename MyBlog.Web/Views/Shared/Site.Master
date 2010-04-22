@@ -2,9 +2,18 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<%
+    var atomLink = new HtmlLink
+    {
+        Href = Url.AbsoluteContent("~/atom/service/")
+    };
+    atomLink.Attributes["rel"] = "service";
+    atomLink.Attributes["type"] = "application/atomsvc+xml";
+    Page.Header.Controls.Add(atomLink);
+%>
 <head runat="server">
     <title>Sergey Shishkin</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" runat="server" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
 </head>
 <body>
     <div id="page">

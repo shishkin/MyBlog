@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Activation;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -16,12 +17,14 @@ namespace MyBlog.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            var factory = new WebServiceHostFactory();
+            routes.Add(new ServiceRoute("atom/service", factory, typeof(AtomPubService)));
+
             routes.MapRoute(
                 "Default",                                              // Route name
                 "{controller}/{action}/{id}",                           // URL with parameters
                 new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
             );
-
         }
 
         protected void Application_Start()
