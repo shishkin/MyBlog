@@ -6,6 +6,7 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Syndication;
 using System.ServiceModel.Web;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MyBlog.Web
 {
@@ -25,29 +26,33 @@ namespace MyBlog.Web
                 new ServiceDocument
                 {
                     BaseUri = request.UriTemplateMatch.RequestUri,
-                    Workspaces =
-                        {
-                            new Workspace
-                            {
-                                Title = new TextSyndicationContent("Blog"),
-                                Collections =
-                                    {
-                                        new ResourceCollectionInfo
-                                        {
-                                            Title = new TextSyndicationContent("Posts"),
-                                            BaseUri = new Uri("posts", UriKind.Relative),
-                                            Accepts = {"application/atom+xml;type=entry"}
-                                        },
-                                        new ResourceCollectionInfo
-                                        {
-                                            Title = new TextSyndicationContent("Images"),
-                                            BaseUri = new Uri("images", UriKind.Relative),
-                                            Accepts = { "image/png", "image/jpeg", "image/gif" }
-                                        }
-                                    }
-                            }
-                        }
+                    Workspaces = { CreateWorkspace("Blog") }
                 });
+        }
+
+        private static Workspace CreateWorkspace(string title)
+        {
+            return new Workspace
+            {
+                Title = new TextSyndicationContent(title),
+                Collections =
+                {
+                    CreateCollectionInfo("Posts", "application/atom+xml;type=entry"),
+                    CreateCollectionInfo("Images", "image/png", "image/jpeg", "image/gif")
+                }
+            };
+        }
+
+        private static ResourceCollectionInfo CreateCollectionInfo(string name, params string[] accepts)
+        {
+            var info = new ResourceCollectionInfo
+            {
+                Title = new TextSyndicationContent(name),
+                BaseUri = new Uri(HttpUtility.UrlEncode(name), UriKind.Relative),
+            };
+
+            accepts.CopyTo(info.Accepts);
+            return info;
         }
     }
 }
