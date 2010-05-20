@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace MyBlog.Web
@@ -20,6 +22,21 @@ namespace MyBlog.Web
         {
             var uri = new Uri(baseUri.AbsoluteUri.TrimEnd('/') + '/');
             return new Uri(uri, relativeUri);
+        }
+
+        public static Uri OneUp(this Uri uri)
+        {
+            var builder = new UriBuilder(uri);
+            var newPath = uri.Segments.Take(uri.Segments.Length - 1);
+            builder.Path = string.Join("/", newPath).TrimStart('/');
+            return builder.Uri;
+        }
+
+        public static Uri Modify(this Uri uri, Action<UriBuilder> modifier)
+        {
+            var builder = new UriBuilder(uri);
+            modifier(builder);
+            return builder.Uri;
         }
     }
 }

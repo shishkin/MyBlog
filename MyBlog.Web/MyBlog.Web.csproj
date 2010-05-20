@@ -75,7 +75,9 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="AtomPubService.cs" />
+    <Compile Include="AtomPub\DocumentService.cs" />
+    <Compile Include="AtomPub\ArticleService.cs" />
+    <Compile Include="AtomPub\MediaService.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">

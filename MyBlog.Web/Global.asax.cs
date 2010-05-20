@@ -5,6 +5,7 @@ using System.ServiceModel.Activation;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using MyBlog.Web.AtomPub;
 
 namespace MyBlog.Web
 {
@@ -18,7 +19,9 @@ namespace MyBlog.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             var factory = new WebServiceHostFactory();
-            routes.Add(new ServiceRoute("atom/service", factory, typeof(AtomPubService)));
+            routes.Add(new ServiceRoute("Atom/Media", factory, typeof(MediaService)));
+            routes.Add(new ServiceRoute("Atom/Articles", factory, typeof(ArticleService)));
+            routes.Add(new ServiceRoute("Atom/Service", factory, typeof(DocumentService)));
 
             routes.MapRoute(
                 "Default",                                              // Route name
