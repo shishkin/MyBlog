@@ -15,5 +15,11 @@ namespace MyBlog.Web
                 full;
             return string.Join("/", start.TrimEnd('/'), contentPath.TrimStart('~', '/'));
         }
+
+        public static Uri Append(this Uri baseUri, string relativeUri)
+        {
+            var uri = new Uri(baseUri.AbsoluteUri.TrimEnd('/') + '/');
+            return new Uri(uri, relativeUri);
+        }
     }
 }

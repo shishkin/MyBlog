@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%
     Page.Header.AddLink(
-        Url.AbsoluteContent("~/atom/service/"),
+        //Url.AbsoluteContent("~/atom/service/"),
+        "http://ipv4.fiddler:11147/atom/service/",
         "service",
         "application/atomsvc+xml");
 %>
