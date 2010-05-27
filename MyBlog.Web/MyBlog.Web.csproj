@@ -38,8 +38,21 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.CoreEx, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Rx\System.CoreEx.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Interactive, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Rx\System.Interactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Rx\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.ServiceModel.Web" />
@@ -75,9 +88,19 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="AtomPub\DocumentService.cs" />
-    <Compile Include="AtomPub\ArticleService.cs" />
-    <Compile Include="AtomPub\MediaService.cs" />
+    <Compile Include="AtomPub\AtomAdapter.cs" />
+    <Compile Include="AtomPub\Blog.cs" />
+    <Compile Include="AtomPub\IResourceCollection.cs" />
+    <Compile Include="AtomPub\ResourceCollection.cs" />
+    <Compile Include="AtomPub\ContentTypes.cs" />
+    <Compile Include="AtomPub\ISyndicationItemFactory.cs" />
+    <Compile Include="AtomPub\ISyndicationItemHandler.cs" />
+    <Compile Include="AtomPub\ISyndicationService.cs" />
+    <Compile Include="AtomPub\MediaSyndicationItem.cs" />
+    <Compile Include="AtomPub\MediaSyndicationItemHandler.cs" />
+    <Compile Include="AtomPub\SyndicationItemFactory.cs" />
+    <Compile Include="AtomPub\SyndicationItemHandler.cs" />
+    <Compile Include="AtomPub\SyndicationService.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -86,7 +109,11 @@
     <Compile Include="HtmlExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StreamExtensions.cs" />
+    <Compile Include="SyndicationExtensions.cs" />
     <Compile Include="UrlHelperExtensions.cs" />
+    <Compile Include="Views\Shared\ViewPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\blog_32_0.png" />
@@ -149,8 +176,7 @@
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>11147</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://shishkins/MyBlog.Web</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

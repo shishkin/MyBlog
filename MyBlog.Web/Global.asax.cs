@@ -6,6 +6,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using MyBlog.Web.AtomPub;
+using System.IO;
+using System.Text;
+using System.ServiceModel.Syndication;
 
 namespace MyBlog.Web
 {
@@ -14,21 +17,24 @@ namespace MyBlog.Web
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static readonly Blog Blog = new Blog();
+
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            AtomAdapter.itemFactory = new SyndicationItemFactory();
+            AtomAdapter.service = Blog;
             var factory = new WebServiceHostFactory();
-            routes.Add(new ServiceRoute("Atom/Media", factory, typeof(MediaService)));
-            routes.Add(new ServiceRoute("Atom/Articles", factory, typeof(ArticleService)));
-            routes.Add(new ServiceRoute("Atom/Service", factory, typeof(DocumentService)));
+            routes.Add(new ServiceRoute("Atom", factory, typeof(AtomAdapter)));
 
             routes.MapRoute(
-                "Default",                                              // Route name
-                "{controller}/{action}/{id}",                           // URL with parameters
-                new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
+                "Default",
+                "{controller}/{action}/{id}",
+                new { controller = "Home", action = "Index", id = "" }
             );
         }
+
 
         protected void Application_Start()
         {
