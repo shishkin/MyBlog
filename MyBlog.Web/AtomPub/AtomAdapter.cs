@@ -45,6 +45,12 @@ namespace MyBlog.Web.AtomPub
         public Atom10ItemFormatter Get(string collection, string id)
         {
             var item = service.Get(collection, id);
+            if (item == null)
+            {
+                Response(x => x.StatusCode = HttpStatusCode.NotFound);
+                return null;
+            }
+
             item.BaseUri = GetRequestUri();
             Response(x => x.ContentType = ContentTypes.AtomEntry);
             return item.GetAtom10Formatter();
@@ -97,7 +103,7 @@ namespace MyBlog.Web.AtomPub
         private Uri GetRequestUri()
         {
             return Request(x => x.UriTemplateMatch.RequestUri)
-                .Modify(x => x.Host = "ipv4.fiddler")
+                //.Modify(x => x.Host = "ipv4.fiddler")
                 ;
         }
     }

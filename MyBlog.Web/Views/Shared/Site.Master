@@ -5,7 +5,7 @@
 <%
     Page.Header.AddLink(
         Url.AbsoluteContent("~/Atom/")
-            .Replace("localhost", "ipv4.fiddler")
+            //.Replace("localhost", "ipv4.fiddler")
             ,
         "service",
         "application/atomsvc+xml");

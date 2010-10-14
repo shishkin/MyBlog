@@ -20,14 +20,9 @@ namespace MyBlog.Web.AtomPub
 
         public ResourceCollectionInfo Info { get; private set; }
 
-        private string CollectionName
-        {
-            get { return Info.Link.ToString(); }
-        }
-
         public SyndicationItem Post(SyndicationItem item)
         {
-            store.Put(CollectionName, item.Id, item);
+            store.Put(item);
             return item;
         }
 
@@ -38,17 +33,17 @@ namespace MyBlog.Web.AtomPub
 
         public void Delete(string id)
         {
-            store.Delete(CollectionName, id);
+            store.Delete(id);
         }
 
         public IEnumerable<SyndicationItem> List()
         {
-            return store.List(CollectionName);
+            return store.List();
         }
 
         public SyndicationItem Get(string id)
         {
-            return store.Get(CollectionName, id);
+            return store.Get(id);
         }
     }
 }

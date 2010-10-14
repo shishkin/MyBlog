@@ -8,12 +8,12 @@ namespace MyBlog.Web.Models
 {
     public interface IDataStore
     {
-        void Put(string collection, string key, SyndicationItem value);
+        void Put(SyndicationItem value);
 
-        SyndicationItem Get(string collection, string key);
+        SyndicationItem Get(string id);
 
-        void Delete(string collection, string key);
+        void Delete(string id);
 
-        IEnumerable<SyndicationItem> List(string collection);
+        IEnumerable<SyndicationItem> List();
     }
 }
