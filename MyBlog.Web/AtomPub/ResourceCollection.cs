@@ -5,46 +5,51 @@ using System.ServiceModel.Syndication;
 
 namespace MyBlog.Web.AtomPub
 {
+    using Models;
+
     public class ResourceCollection<T>
         : IResourceCollection
         where T : SyndicationItem
     {
-        private readonly Dictionary<string, T> items =
-            new Dictionary<string, T>(StringComparer.OrdinalIgnoreCase);
+        private readonly IDataStore store;
 
-        public ResourceCollection(ResourceCollectionInfo info)
+        public ResourceCollection(IDataStore store, ResourceCollectionInfo info)
         {
+            this.store = store;
             Info = info;
         }
 
         public ResourceCollectionInfo Info { get; private set; }
 
+        private string CollectionName
+        {
+            get { return Info.Link.ToString(); }
+        }
+
         public T Post(T item)
         {
-            items.Add(item.Id, item);
+            store.Put(CollectionName, item.Id, item);
             return item;
         }
 
         public T Put(T item)
         {
-            items[item.Id] = item;
-            return item;
+            return Post(item);
         }
 
         public void Delete(string id)
         {
-            items.Remove(id);
+            store.Delete(CollectionName, id);
         }
 
         public IEnumerable<T> List()
         {
-            return items.Values
-                .OrderByDescending(x => x.LastUpdatedTime);
+            return store.List<T>(CollectionName);
         }
 
         public T Get(string id)
         {
-            return items[id];
+            return store.Get<T>(CollectionName, id);
         }
 
         SyndicationItem IResourceCollection.Get(string id)
