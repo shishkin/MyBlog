@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ServiceModel.Syndication;
 
 namespace MyBlog.Web.Models
 {
     public interface IDataStore
     {
-        void Put<T>(string collection, string key, T value);
+        void Put(string collection, string key, SyndicationItem value);
 
-        T Get<T>(string collection, string key);
+        SyndicationItem Get(string collection, string key);
 
         void Delete(string collection, string key);
 
-        IEnumerable<T> List<T>(string collection);
+        IEnumerable<SyndicationItem> List(string collection);
     }
 }

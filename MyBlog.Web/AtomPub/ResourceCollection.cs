@@ -7,9 +7,8 @@ namespace MyBlog.Web.AtomPub
 {
     using Models;
 
-    public class ResourceCollection<T>
+    public class ResourceCollection
         : IResourceCollection
-        where T : SyndicationItem
     {
         private readonly IDataStore store;
 
@@ -26,13 +25,13 @@ namespace MyBlog.Web.AtomPub
             get { return Info.Link.ToString(); }
         }
 
-        public T Post(T item)
+        public SyndicationItem Post(SyndicationItem item)
         {
             store.Put(CollectionName, item.Id, item);
             return item;
         }
 
-        public T Put(T item)
+        public SyndicationItem Put(SyndicationItem item)
         {
             return Post(item);
         }
@@ -42,34 +41,14 @@ namespace MyBlog.Web.AtomPub
             store.Delete(CollectionName, id);
         }
 
-        public IEnumerable<T> List()
+        public IEnumerable<SyndicationItem> List()
         {
-            return store.List<T>(CollectionName);
+            return store.List(CollectionName);
         }
 
-        public T Get(string id)
+        public SyndicationItem Get(string id)
         {
-            return store.Get<T>(CollectionName, id);
-        }
-
-        SyndicationItem IResourceCollection.Get(string id)
-        {
-            return Get(id);
-        }
-
-        IEnumerable<SyndicationItem> IResourceCollection.List()
-        {
-            return List();
-        }
-
-        SyndicationItem IResourceCollection.Post(SyndicationItem item)
-        {
-            return Post((T)item);
-        }
-
-        SyndicationItem IResourceCollection.Put(SyndicationItem item)
-        {
-            return Put((T)item);
+            return store.Get(CollectionName, id);
         }
     }
 }

@@ -17,21 +17,13 @@ namespace MyBlog.Web.AtomPub
         private static IEnumerable<IResourceCollection> GetResourceCollections(
             IDataStore store)
         {
-            yield return new ResourceCollection<SyndicationItem>(
+            yield return new ResourceCollection(
                 store,
                 new ResourceCollectionInfo
                 {
                     Title = new TextSyndicationContent("Articles"),
                     Link = new Uri("Articles", UriKind.Relative),
                     Accepts = { ContentTypes.AtomEntry }
-                });
-            yield return new ResourceCollection<MediaSyndicationItem>(
-                store,
-                new ResourceCollectionInfo
-                {
-                    Title = new TextSyndicationContent("Media"),
-                    Link = new Uri("Media", UriKind.Relative),
-                    Accepts = { "image/png", "image/jpeg", "image/gif" }
                 });
         }
     }
