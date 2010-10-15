@@ -17,7 +17,7 @@ namespace MyBlog.Web
 
     public class MvcApplication : System.Web.HttpApplication
     {
-        public static readonly Blog Blog = new Blog(new Data.SimpleDB());
+        public static readonly Blog Blog = new Blog(new Data.MongoDB());
 
         public static void RegisterRoutes(RouteCollection routes)
         {

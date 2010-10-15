@@ -33,12 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AWSSDK, Version=1.0.14.1, Culture=neutral, PublicKeyToken=cd2d24cd2bace800, processorArchitecture=MSIL" />
     <Reference Include="dotless.Core">
       <HintPath>..\Lib\dotless\dotless.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json.Net20, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="Norm">
+      <HintPath>..\Lib\NoRM\Norm.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.CoreEx, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -105,8 +106,7 @@
     <Compile Include="AtomPub\SyndicationService.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Data\SimpleDB.cs" />
-    <Compile Include="Data\SimpleDBExtensions.cs" />
+    <Compile Include="Data\MongoDB.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
