@@ -37,8 +37,12 @@
       <HintPath>..\Lib\dotless\dotless.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Norm">
-      <HintPath>..\Lib\NoRM\Norm.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Hammock\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RedBranch.Hammock">
+      <HintPath>..\Lib\Hammock\RedBranch.Hammock.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.CoreEx, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -106,10 +110,8 @@
     <Compile Include="AtomPub\SyndicationService.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Data\DateTimeOffsetTypeConverter.cs" />
-    <Compile Include="Data\MongoDB.cs" />
-    <Compile Include="Data\SyndicationContentTypeConverter.cs" />
-    <Compile Include="Data\UriTypeConverter.cs" />
+    <Compile Include="Data\CouchDB.cs" />
+    <Compile Include="Data\SyndicationContentConverter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
