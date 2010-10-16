@@ -26,22 +26,6 @@ namespace MyBlog.Web
             return null;
         }
 
-        public static SyndicationContent LoadSyndicationContent(this string content)
-        {
-            if (content.StartsWith("<"))
-            {
-                using (var text = new StringReader(content))
-                using (var reader = XmlReader.Create(text))
-                {
-                    return SyndicationContent.CreateXmlContent(reader);
-                }
-            }
-            else
-            {
-                return SyndicationContent.CreatePlaintextContent(content);
-            }
-        }
-
         public static SyndicationItem LoadSyndicationItem(this string xml)
         {
             using (var text = new StringReader(xml))

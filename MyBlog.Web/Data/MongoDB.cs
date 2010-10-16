@@ -6,7 +6,6 @@ using System.Web;
 using System.ServiceModel.Syndication;
 
 using Norm;
-using Norm.BSON;
 using Norm.Configuration;
 using Norm.Collections;
 
@@ -70,59 +69,4 @@ namespace MyBlog.Web.Data
             }
         }
     }
-
-    public class DateTimeOffsetTypeConverter : IBsonTypeConverter
-    {
-        public object ConvertFromBson(object data)
-        {
-            return new DateTimeOffset((DateTime)data, TimeSpan.Zero);
-        }
-
-        public object ConvertToBson(object data)
-        {
-            return ((DateTimeOffset)data).UtcDateTime;
-        }
-
-        public Type SerializedType
-        {
-            get { return typeof(DateTime); }
-        }
-    }
-
-    public class UriTypeConverter : IBsonTypeConverter
-    {
-        public object ConvertFromBson(object data)
-        {
-            return new Uri((string)data);
-        }
-
-        public object ConvertToBson(object data)
-        {
-            return ((Uri)data).OriginalString;
-        }
-
-        public Type SerializedType
-        {
-            get { return typeof(string); }
-        }
-    }
-
-    public class SyndicationContentTypeConverter : IBsonTypeConverter
-    {
-        public object ConvertFromBson(object data)
-        {
-            return SyndicationContent.CreatePlaintextContent((string)data);
-        }
-
-        public object ConvertToBson(object data)
-        {
-            return ((SyndicationContent)data).GetText();
-        }
-
-        public Type SerializedType
-        {
-            get { return typeof(string); }
-        }
-    }
-
 }

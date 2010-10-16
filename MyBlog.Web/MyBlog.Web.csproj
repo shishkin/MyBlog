@@ -106,7 +106,10 @@
     <Compile Include="AtomPub\SyndicationService.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\DateTimeOffsetTypeConverter.cs" />
     <Compile Include="Data\MongoDB.cs" />
+    <Compile Include="Data\SyndicationContentTypeConverter.cs" />
+    <Compile Include="Data\UriTypeConverter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
