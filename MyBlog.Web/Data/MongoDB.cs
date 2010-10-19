@@ -32,6 +32,7 @@ namespace MyBlog.Web.Data
                     map.IdIs(x => x.Id);
                 });
             });
+            InMongo(items => items.Delete(new { }));
         }
 
         public void Put(SyndicationItem value)
@@ -41,17 +42,17 @@ namespace MyBlog.Web.Data
 
         public SyndicationItem Get(string id)
         {
-            return InMongo(x => x.FindOne(new { Id = id }));
+            return InMongo(items => items.FindOne(new { Id = id }));
         }
 
         public void Delete(string id)
         {
-            InMongo(x => x.Delete(new { Id = id }));
+            InMongo(items => items.Delete(new { Id = id }));
         }
 
         public IEnumerable<SyndicationItem> List()
         {
-            return InMongo(x => x.Find());
+            return InMongo(items => items.Find());
         }
 
         private T InMongo<T>(Func<IMongoCollection<SyndicationItem>, T> func)
@@ -63,9 +64,9 @@ namespace MyBlog.Web.Data
 
         private void InMongo(Action<IMongoCollection<SyndicationItem>> func)
         {
-            using (var db = Mongo.Create(connectionString))
+            using (var mongo = Mongo.Create(connectionString))
             {
-                func(db.Database.GetCollection<SyndicationItem>("Articles"));
+                func(mongo.Database.GetCollection<SyndicationItem>("Articles"));
             }
         }
     }
