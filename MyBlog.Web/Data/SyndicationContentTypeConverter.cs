@@ -18,7 +18,7 @@ namespace MyBlog.Web.Data
                 return null;
             }
 
-            if (obj["Type"] == "html")
+            if ((string)obj["Type"] == "html")
             {
                 return SyndicationContent.CreateHtmlContent((string)obj["Text"]);
             }
